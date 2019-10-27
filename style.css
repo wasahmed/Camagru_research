@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url(imgs/selfie-stick_h.jpg) no-repeat;
+    background-size: cover;
+}
+
+.login-box{
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.login-box h2{
+    float: left;
+    font-size: 40px;
+    border-bottom: 5px solid tan;
+    margin-bottom: 5px;
+    padding: 13px 0;
+}
+
+.textbox {
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px;
+    border-bottom: 1px solid black;
+}
+
+.textbox i{
+    width: 25px;
+    float: left;
+    text-align: center;
+
+}
+
+.textbox input{
+    border: none;
+    outline: none;
+    background: none;
+    color: crimson;
+    font-size: 20px;
+    width: 95%;
+    float: left;
+    margin: 0 10px;
+}
+
+.btn{
+    width: 100%;
+    background: black;
+    border: 2px solid black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 9px;
+}
