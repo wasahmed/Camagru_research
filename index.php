@@ -1,4 +1,4 @@
-<?php require_once('config/setup.php') ?>
+<?php include('config/setup.php') ?>
 <!DOCTYPE html>
 <html>
 

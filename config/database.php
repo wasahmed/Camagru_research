@@ -11,6 +11,7 @@ $db = "camagru";
         $conn->exec("CREATE DATABASE `$db`;");
     } catch (PDOException $e) {
         die("DB ERROR: ". $e->getMessage());
+        
     }
 $conn = NULL;
 //creating db ends here//////////////////////////////////////////////////////
@@ -37,5 +38,6 @@ $sql = "CREATE TABLE $db.users (
     password VARCHAR(30) NOT NULL)";
 
 $conn->exec($sql);
+$conn = NULL;
 /////////////////////////////////////////////////////////////////////////////
 ?>

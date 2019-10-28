@@ -1,5 +1,5 @@
 <?php include('serverside.php') ?>
-<?php require_once('config/setup.php') ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -33,7 +33,7 @@
                     <div class="textbox">
                         <input type="password" placeholder="Confirm Password" name="password_2" value="" required/>
                     </div>
-                    <button type="submit"> SignIN </button>
+                    <button type="submit" name="register"> SignIN </button>
                     <!-- <a href="home.php"><button class="btn">Sign Up</button></a> -->
                 <p>Already have an account?  <a href="index.php">Sign In</a></p>
                 </form>

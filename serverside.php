@@ -2,6 +2,7 @@
 
 session_start();
 
+if(isset($_POST['register'])){
 //intialise variables
 $username = "";
 $password = "";
@@ -9,7 +10,7 @@ $errors = array();
 
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=users", $root, $password);
+    $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(PDOException $e)
@@ -51,5 +52,6 @@ if (count($errors) == 0){
     $_SESSION['username'] = $username;
     $_SESSION['success'] = "You are now logged in";
     header('location: test.php');
+}
 }
 ?>
