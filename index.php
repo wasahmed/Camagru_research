@@ -1,4 +1,4 @@
-<?php include('serverside.php') ?>
+<?php require_once('config/setup.php') ?>
 <!DOCTYPE html>
 <html>
 

@@ -1,4 +1,6 @@
 <?php include('serverside.php') ?>
+<?php require_once('config/setup.php') ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +16,7 @@
             <div>
                 <form action="register.php" method="post">
 
-                    <?php include(errors.php) ?>
+                    <?php include('errors.php') ?>
             
                     <div class="textbox">
                         <input type="text" placeholder="Username" name="username" value="" required/>
