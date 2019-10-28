@@ -12,17 +12,17 @@
             <h2>Login</h2>
 
             <div>
-                <form action="index.php" method="post">
+                <form action="home.php" method="post">
             
                     <div class="textbox">
-                        <input type="text" placeholder="Username" name="username" value=""/>
+                        <input type="text" placeholder="Username" name="username" value="" required/>
                     </div>
 
                     <div class="textbox">
-                        <input type="password" placeholder="Password" name="password_1" value=""/>
+                        <input type="password" placeholder="Password" name="password_1" value="" required/>
                     </div>
 
-                   <input class="btn" type="button" name="submit" value="Sign In">
+                   <a href="home.php"><button class="btn">Sign In</button></a>
                 <p>Not registered?  <a href="register.php">Sign Up</a></p>
                 </form>
             </div>

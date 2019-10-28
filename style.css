@@ -53,11 +53,19 @@ body {
 .btn{
     width: 100%;
     background: black;
-    border: 2px solid black;
+     border: 2px solid black;
     color: white;
     text-align: center;
     padding: 5px;
     font-size: 15px;
     cursor: pointer;
-    border-radius: 9px;
+    border-radius: 9px; 
+}
+
+.footer{
+    top: 90%;
+    left: 90%;
+    text-align: end;
+    text-align: end;
+
 }
