@@ -1,5 +1,3 @@
-<?php include('serverside.php') ?>
-
 
 <!DOCTYPE html>
 <html>

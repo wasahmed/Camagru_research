@@ -1,4 +1,4 @@
-<?php include('config/setup.php') ?>
+
 <!DOCTYPE html>
 <html>
 
