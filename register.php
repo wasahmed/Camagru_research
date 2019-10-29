@@ -1,4 +1,4 @@
-
+<?php include('serverside.php') ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +12,7 @@
             <h2>Register</h2>
 
             <div>
-                <form action="register.php" method="post">
+                <form action="serverside.php" method="post">
 
                     <?php include('errors.php') ?>
             
@@ -25,13 +25,13 @@
                     </div>
 
                     <div class="textbox">
-                        <input type="password" placeholder="Password" name="password_1" value="" required/>
+                        <input type="password" placeholder="Password" name="password_1" value="" />
                     </div>
 
                     <div class="textbox">
                         <input type="password" placeholder="Confirm Password" name="password_2" value="" required/>
                     </div>
-                    <button type="submit" name="register"> SignIN </button>
+                    <button type="submit" name="register" class="btn"> Sign In </button>
                     <!-- <a href="home.php"><button class="btn">Sign Up</button></a> -->
                 <p>Already have an account?  <a href="index.php">Sign In</a></p>
                 </form>
