@@ -80,16 +80,18 @@ if(isset($_POST['register'])){
 
 
 ///login/////////////////////////////////////////////////
-try {
-    $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch(PDOException $e)
-{
-    echo "connection error: " . $e;
-}
+
 
 if(isset($_POST['login'])){
+    try {
+        $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(PDOException $e)
+    {
+        echo "connection error: " . $e;
+    }
+
     $username1 =  $_POST['username'];
     $password1 =  $_POST['password_1'];
 
@@ -98,12 +100,20 @@ if (empty($password1)){array_push($errors, "Password required");}
 
 if(count($errors) == 0){
     $password1 = md5($password1);
-    $lq = $conn->prepare("SELECT * FROM users WHERE username = '$username1' and passwd='$password1'");
+    $lq = $conn->prepare("SELECT * FROM users WHERE username = '$username1' and passwd='$password1' LIMIT 1");
     $lq->execute();
-    echo $password1."op";
     $rows = $lq->rowCount();
     if ($rows)
     {
+        $row = $lq->fetchAll();
+        $verified = $row[0]['verified'];
+        if ($verified == 1)
+        {
+            echo "WELCOME";
+        }
+        else {
+            echo "not verified";
+        }
         $_SESSION['username'] = $username;
         $_SESSION['success'] = "logged in successfuly";
         //header('location: test.php');
