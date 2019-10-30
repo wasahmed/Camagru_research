@@ -35,7 +35,9 @@ $sql = "CREATE TABLE $db.users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     email VARCHAR(30),
-    passwd VARCHAR(100) NOT NULL)";
+    passwd VARCHAR(100) NOT NULL, 
+    `link` VARCHAR(50) NOT NULL , 
+    `verified` TINYINT(1) NULL DEFAULT 0)";
 
 $conn->exec($sql);
 $conn = NULL;

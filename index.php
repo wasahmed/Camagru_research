@@ -1,4 +1,4 @@
-
+<? include('serverside.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +12,7 @@
             <h2>Login</h2>
 
             <div>
-                <form action="index.php" method="post">
+                <form action="serverside.php" method="post">
             
                     <div class="textbox">
                         <input type="text" placeholder="Username" name="username" value="" required/>
@@ -22,7 +22,7 @@
                         <input type="password" placeholder="Password" name="password_1" value="" required/>
                     </div>
 
-                   <a href="home.php"><button class="btn">Sign In</button></a>
+                    <button type="submit" name="login" class="btn"> Sign In </button>
                 <p>Not registered?  <a href="register.php">Sign Up</a></p>
                 </form>
             </div>

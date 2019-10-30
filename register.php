@@ -1,4 +1,4 @@
-<?php include('serverside.php') ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -32,7 +32,6 @@
                         <input type="password" placeholder="Confirm Password" name="password_2" value="" required/>
                     </div>
                     <button type="submit" name="register" class="btn"> Sign In </button>
-                    <!-- <a href="home.php"><button class="btn">Sign Up</button></a> -->
                 <p>Already have an account?  <a href="index.php">Sign In</a></p>
                 </form>
             </div>
