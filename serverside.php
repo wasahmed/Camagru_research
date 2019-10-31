@@ -118,6 +118,7 @@ if(count($errors) == 0){
         $_SESSION['success'] = "logged in successfuly";
         //header('location: test.php');
     }else {
+        echo "htdgfg";
         array_push($errors, "wrong username/password");
     }
 }
