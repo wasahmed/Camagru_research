@@ -14,7 +14,6 @@
         $result->execute();
         $new = "a";
         $new = md5($new);
-        echo "here";
 		if($result->rowCount() == 1)
 		{
 			$update = $conn->prepare("UPDATE users SET passwd='$new' WHERE link='$link' LIMIT 1");   
@@ -23,9 +22,9 @@
 					echo "<b>password reset</b>";
 				}
 		}else{
-			echo "damn";
+			echo "email not found";
 		}
 	}else{
-		die("somethings wrong");
+		die("reset link not clicked");
 	}
 ?>
