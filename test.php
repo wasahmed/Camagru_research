@@ -16,6 +16,7 @@ if (isset($_GET['logout'])){
 <html>
 <head>
     <title>testpage</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>this is a test<h1>
