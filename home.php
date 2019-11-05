@@ -71,10 +71,13 @@
                     {
                         session_destroy();
                         unset($_SESSION['username']);
+                        unset($_SESSION['success']);
                         header('location: index.php');
+                        //var_dump($_SESSION);
                     }
                     else
-                    {
+                    {  
+                        //var_dump($_SESSION);
                         echo"default home";
                     }
                 ?>

@@ -1,4 +1,4 @@
-<? include('serverside.php'); ?>
+<?php include('serverside.php'); ?>
 <!DOCTYPE html>
 <html>
 

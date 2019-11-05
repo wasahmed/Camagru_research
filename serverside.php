@@ -114,7 +114,7 @@ if(count($errors) == 0){
         else {
             echo "not verified";
         }
-        $_SESSION['username'] = $username;
+        $_SESSION['username'] = $username1;
         $_SESSION['success'] = "logged in successfuly";
         header('location: home.php');
     }else {

@@ -17,19 +17,19 @@ body {
     justify-content: space-evenly;
 }
 
-#logo{
+/* #logo{
     float: left;
-}
+} */
 
 #slogan{
     margin-top: 47px;
 }
 
-#mac{
+/* #mac{
     float: right;
     height: 70px;
     margin-top: 20px;
-}
+} */
 
 /* .content_wrapper{
     width: 1000px;
