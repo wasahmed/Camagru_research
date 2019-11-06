@@ -121,9 +121,7 @@ if(count($errors) == 0){
             echo "not verified";
         }
     } else {
-        array_push($errors, "wrong username/password");
-        echo "Error: ";
-        print_r($errors);
+        echo "Error: wrong username/password;
     }
 }
 }

@@ -1,7 +1,7 @@
 <?php
     session_start();
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
+        $conn = new PDO("mysql:host=localhost;dbname=camagru", "groot2", "654321");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     catch(PDOException $e)
@@ -28,20 +28,22 @@
 	// 	die("reset link not clicked");
     // }
     if(isset($_POST['new_password'])){
-        $newpassword = $_POST['new_password'];
-        $sessionuser = $_SESSION['username'];
-		$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
+			if ($_POST['new_password'] !== '') {
+        $newpassword = md5($_POST['new_password']);
+				$sessionuser = $_SESSION['username'];
+				$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
         $result->execute();
-		if($result->rowCount() == 1)
-		{
-			$update = $conn->prepare("UPDATE users SET passwd='$newpassword' WHERE username='$sessionuser' LIMIT 1");   
-			$update->execute();
-				if ($update){
-					echo "<b>password changed</b>";
+				if($result->rowCount() == 1)
+				{
+					$update = $conn->prepare("UPDATE users SET passwd='$newpassword' WHERE username='$sessionuser' LIMIT 1");   
+					$update->execute();
+						if ($update){
+							echo "<b>password changed</b>";
+						}
+				}else{
+					echo "error";
 				}
-		}else{
-			echo "error";
-		}
+				}
     }
     else{
 		die("reset link not clicked");
