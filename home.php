@@ -43,12 +43,14 @@
                     else if ($link == '4')
                     {
                         // echo "change username, password, email";
+                        
                         echo "
                         <div>
                             <h3>Modify account</h3>
-                                <form action='home2.php' method='post'>
+                                <form action='mod.php' method='post'>
 
                                 <div>
+                                <?php include('mod.php');?>
                                 <input type='text' placeholder='New Username' name='new_username' value='' />
                                 </div>
 
