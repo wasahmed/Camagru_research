@@ -10,7 +10,7 @@ if(isset($_POST['register'])){
 
 //////connecting to db/////////////////////////////////////////////////////////////
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
+        $conn = new PDO("mysql:host=localhost;dbname=camagru", "groot2", "654321");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     catch(PDOException $e)
@@ -74,6 +74,9 @@ if(isset($_POST['register'])){
         //header('location: test.php');
         // echo "A verification email has been sent to $email";
         // echo "<p>confirmed account?".'<a href="index.php">Link</a>';
+    } else {
+        echo "Errors: <a href='index.php'>Go Back</a>";
+        print_r($errors);
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
@@ -84,7 +87,7 @@ if(isset($_POST['register'])){
 
 if(isset($_POST['login'])){
     try {
-        $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
+        $conn = new PDO("mysql:host=localhost;dbname=camagru", "groot2", "654321");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
     catch(PDOException $e)
@@ -110,16 +113,15 @@ if(count($errors) == 0){
         if ($verified == 1)
         {
             echo "WELCOME";
+            $_SESSION['username'] = $username1;
+            $_SESSION['success'] = "logged in successfuly";
+            header('location: home.php');
         }
         else {
             echo "not verified";
         }
-        $_SESSION['username'] = $username1;
-        $_SESSION['success'] = "logged in successfuly";
-        header('location: home.php');
-    }else {
-        echo "htdgfg";
-        array_push($errors, "wrong username/password");
+    } else {
+        echo "Error: wrong username/password;
     }
 }
 }

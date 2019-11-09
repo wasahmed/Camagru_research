@@ -1,8 +1,8 @@
 <?php
 //creating db starts here////////////////////////////////////////////////////
 $servername="localhost"; 
-$root="root"; 
-$password="654321"; 
+global $root="root"; 
+global $password="654321"; 
 $db = "camagru";
 
     try {

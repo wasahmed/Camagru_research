@@ -4,7 +4,7 @@
 		$link = $_GET['link'];
 
 		try {
-			$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
+			$conn = new PDO("mysql:host=localhost;dbname=camagru", "groot2", "654321");
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		}
 		catch(PDOException $e)
