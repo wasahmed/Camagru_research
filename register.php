@@ -1,31 +1,36 @@
-
 <!DOCTYPE html>
 <html>
 
     <head>
         <title>Camagru: Register</title>
         <link rel="stylesheet" href="style.css">
-        <!-- <script>
-            chkpwd = function(register){
+        <script>
+            function chkpwd(register){
                 var str = document.getElementById('pass').value;
+                console.log('str: ', str);
                 if (str.length < 8)
                 {
                     window.alert("too short");
+                    return false;
                 }
-                else if (str.search(/[a-z]/) == -1)
+                if (str.search(/[a-z]/) == -1)
                 {
                     window.alert("need atleast one lowercase");
+                    return false;
                 }
-                else if (str.search(/[A-Z]/) == -1)
+                if (str.search(/[A-Z]/) == -1)
                 {
                     window.alert("need atleast one uppercase");
+                    return false;
                 }
-                else if (str.search(/[0-9]/) == -1)
+                if (str.search(/[0-9]/) == -1)
                 {
                     window.alert("need atleast one number");
+                    return false;
                 }
+                return true;
             }
-        </script> -->
+        </script>
     </head>
 
     <body>
@@ -34,7 +39,7 @@
 
             <div>
             <!-- need processing to happen only if password is correct -->
-                <form action="serverside" method="post">
+                <form action="serverside.php" method="post" onsubmit="return chkpwd()">
 
                     <?php include('errors.php') ?>
             
@@ -54,7 +59,7 @@
                     <div class="textbox">
                         <input type="password" placeholder="Confirm Password" name="password_2" value="" required/>
                     </div>
-                    <button type="submit" onclick="chkpwd()" name="register" class="btn"> Sign Up </button>
+                    <button type="submit" name="register" class="btn"> Sign Up </button>
                 <p>Already have an account?  <a href="index.php">Sign In</a></p>
                 </form>
             </div>

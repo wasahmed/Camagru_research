@@ -1,13 +1,10 @@
 <?php
-
 session_start();
-
 if(isset($_POST['register'])){
     
     $username = "";
     $password = "";
     $errors = array();
-
 //////connecting to db/////////////////////////////////////////////////////////////
     try {
         $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
@@ -18,7 +15,6 @@ if(isset($_POST['register'])){
         echo "connection error: " . $e;
     }
 ///////////////////////////////////////////////////////////////////////////////////
-
 ////////register users, retrieve form information//////////////////////////////////
     //mysli_real_escape_string??
     $username =  $_POST['username'];
@@ -26,15 +22,12 @@ if(isset($_POST['register'])){
     $password_1 = $_POST['password_1']; 
     $password_2 = $_POST['password_2'];
 /////////////////////////////////////////////////////////////////////////////////////
-
-
 ///////form validation////////////////////////////////////////////////////////////////
     if(empty($username)) {array_push($errors, "Username is required");}
     if(empty($email)) {array_push($errors, "Email is required");}
     if(empty($password_1)) {array_push($errors, "Password is required");}
     if($password_2 != $password_1) {array_push($errors, "Passwords do not match");}
 //////////////////////////////////////////////////////////////////////////////////////
-
 ////////unique usernames or email////////////////////////////////////////////////////////////////////////// 
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = '$username' or email = '$email' LIMIT 1");
     $stmt->execute();
@@ -47,9 +40,6 @@ if(isset($_POST['register'])){
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     $link = md5(time().$username);
     $password = md5($password_1);
-
-
-
 //////register user if no errors/////////////////////////////////////////////////////////////////////////////////////////
     if (count($errors) == 0){
         //$password = md5($password_1);
@@ -62,9 +52,9 @@ if(isset($_POST['register'])){
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             $headers .= 'From: <bikad58028@mailnet.top>' . "\r\n";
-
-
-        if(mail($to, $subject, $message, $headers))
+            if(mail($to, $subject, $message, $headers))
+            
+            echo "testmail";
             echo "A verification email has been sent to $email";
         }
         
@@ -74,14 +64,13 @@ if(isset($_POST['register'])){
         //header('location: test.php');
         // echo "A verification email has been sent to $email";
         // echo "<p>confirmed account?".'<a href="index.php">Link</a>';
+    } else {
+        echo "Errors: <a href='index.php'>Go Back</a>";
+        print_r($errors);
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 }
-
-
 ///login/////////////////////////////////////////////////
-
-
 if(isset($_POST['login'])){
     try {
         $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
@@ -91,13 +80,10 @@ if(isset($_POST['login'])){
     {
         echo "connection error: " . $e;
     }
-
     $username1 =  $_POST['username'];
     $password1 =  $_POST['password_1'];
-
 if (empty($username1)){array_push($errors, "Username required");}
 if (empty($password1)){array_push($errors, "Password required");}
-
 if(count($errors) == 0){
     $password1 = md5($password1);
     $lq = $conn->prepare("SELECT * FROM users WHERE username = '$username1' and passwd='$password1' LIMIT 1");
@@ -110,19 +96,16 @@ if(count($errors) == 0){
         if ($verified == 1)
         {
             echo "WELCOME";
+            $_SESSION['username'] = $username1;
+            $_SESSION['success'] = "logged in successfuly";
+            header('location: home.php');
         }
         else {
             echo "not verified";
         }
-        $_SESSION['username'] = $username1;
-        $_SESSION['success'] = "logged in successfuly";
-        header('location: home.php');
-    }else {
-        echo "htdgfg";
-        array_push($errors, "wrong username/password");
+    } else {
+        echo "Error: wrong username/password";
     }
 }
 }
-
-
 ?>

@@ -1,8 +1,6 @@
-
 <?php
 	if(isset($_GET['link'])){
 		$link = $_GET['link'];
-
 		try {
 			$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

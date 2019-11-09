@@ -3,12 +3,14 @@
 <html>
     <head>
         <link rel="stylesheet" href="style2.css"/>
-       
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Camagru :home</title>
     </head>
 
     <body>
-    
+        <?php
+            if (!isset($_SESSION['success'])) header('location: index.php');
+        ?>
         <div class="main_wrapper">
             
             <div class="header_wrapper">
@@ -48,20 +50,16 @@
                         <div>
                             <h3>Modify account</h3>
                                 <form action='mod.php' method='post'>
-
                                 <div>
                                 <?php include('mod.php');?>
                                 <input type='text' placeholder='New Username' name='new_username' value='' />
                                 </div>
-
                                 <div>
                                 <input type='password' placeholder='New Password' name='new_password' value=''/>
                                 </div>
-
                                 <div>
                                 <input type='email' placeholder='New Email' name='new_email' value='' />
                                 </div>
-
                                 <button type='submit' name='modify account'> Update </button>
                                 </form>
                         </div>
