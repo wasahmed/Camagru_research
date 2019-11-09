@@ -101,10 +101,12 @@ if(count($errors) == 0){
             header('location: home.php');
         }
         else {
-            echo "not verified";
+            echo "<script>window.alert('Please verify your account')</script>";
+            header( "refresh:0; url=index.php" );
         }
     } else {
-        echo "Error: wrong username/password";
+        echo "<script>window.alert('Error: wrong username/password')</script>";
+        header( "refresh:0; url=index.php" );
     }
 }
 }
