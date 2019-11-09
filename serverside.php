@@ -1,3 +1,4 @@
+<?php include('config/database.php');?>
 <?php
 session_start();
 if(isset($_POST['register'])){
@@ -6,14 +7,6 @@ if(isset($_POST['register'])){
     $password = "";
     $errors = array();
 //////connecting to db/////////////////////////////////////////////////////////////
-    try {
-        $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch(PDOException $e)
-    {
-        echo "connection error: " . $e;
-    }
 ///////////////////////////////////////////////////////////////////////////////////
 ////////register users, retrieve form information//////////////////////////////////
     //mysli_real_escape_string??
@@ -72,14 +65,6 @@ if(isset($_POST['register'])){
 }
 ///login/////////////////////////////////////////////////
 if(isset($_POST['login'])){
-    try {
-        $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    catch(PDOException $e)
-    {
-        echo "connection error: " . $e;
-    }
     $username1 =  $_POST['username'];
     $password1 =  $_POST['password_1'];
 if (empty($username1)){array_push($errors, "Username required");}

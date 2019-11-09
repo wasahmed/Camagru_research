@@ -1,3 +1,4 @@
+<?php include('config/database.php');?>
 <?php include('serverside.php'); ?>
 <!DOCTYPE html>
 <html>

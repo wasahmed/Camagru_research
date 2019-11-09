@@ -1,3 +1,4 @@
+<?php include('/config/database.php');?>
 <html>
 <head>
     <title>Camagru: Forgot Password</title>
@@ -20,17 +21,7 @@
 </html>
 <?php
   if(isset($_POST['forgot'])){
-      try {
-          $conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
-          $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-        catch(PDOException $e)
-        {
-            echo "connection error: " . $e;
-        }
-        
-        $email = $_POST['e'];
-        
+        $email = $_POST['e'];    
         $checkemail = $conn->prepare("SELECT * FROM users WHERE email='$email' LIMIT 1");
         $checkemail->execute();
         $rows = $checkemail->rowCount();

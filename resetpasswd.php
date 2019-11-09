@@ -1,3 +1,4 @@
+<?php include('/config/database.php');?>
 <!DOCTYPE html >
 <html>
 <head>
@@ -23,14 +24,6 @@
 	if(isset($_GET['link']) and isset($_POST['new_p'])){
 		$link = $_GET['link'];
         $email = $_POST['e'];
-		try {
-			$conn = new PDO("mysql:host=localhost;dbname=camagru", "root", "654321");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		}
-		catch(PDOException $e)
-		{
-			echo "connection error: " . $e;
-		}
 		$result = $conn->prepare("SELECT * from users WHERE link='$link' LIMIT 1");
         $result->execute();
         $new = $_POST['new'];

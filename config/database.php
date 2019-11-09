@@ -1,14 +1,10 @@
 <?php
+include ('setup.php');
 //creating db starts here////////////////////////////////////////////////////
-$servername="localhost"; 
-$root="root"; 
-$password="654321"; 
-$db = "camagru";
-
     try {
         $conn = new PDO("mysql:host=$servername", $root, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $conn->exec("CREATE DATABASE `$db`;");
+        $conn->exec("CREATE DATABASE IF NOT EXISTS`$db`;");
     } catch (PDOException $e) {
         die("DB ERROR: ". $e->getMessage());
         
@@ -31,7 +27,7 @@ catch(PDOException $e)
 
 
 //create table///////////////////////////////////////////////////////////////
-$sql = "CREATE TABLE $db.users (
+$sql = "CREATE TABLE IF NOT EXISTS $db.users (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(30) NOT NULL,
     email VARCHAR(30),
@@ -40,6 +36,6 @@ $sql = "CREATE TABLE $db.users (
     `verified` TINYINT(1) NULL DEFAULT 0)";
 
 $conn->exec($sql);
-$conn = NULL;
+
 /////////////////////////////////////////////////////////////////////////////
 ?>

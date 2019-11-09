@@ -1,6 +1,6 @@
 <?php
-    //data in a output buffer is still editable by PHP
-    //ob_start();
-
-    include('database.php');
+    $servername="localhost"; 
+    $root="root"; 
+    $password="654321"; 
+    $db = "camagru";
 ?>
