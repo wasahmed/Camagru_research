@@ -9,6 +9,7 @@
         echo "connection error: " . $e;
     }
 	if(isset($_POST['new_username'])){
+		if ($_POST['new_username'] !== '') {
         $newusername = $_POST['new_username'];
         $sessionuser = $_SESSION['username'];
 		$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
@@ -21,18 +22,19 @@
 					echo "<b>username changed</b>";
 				}
 		}else{
-			echo "error";
+			echo "error changing username <br/>";
 		}
+	}
     }
     // else{
 	// 	die("reset link not clicked");
     // }
     if(isset($_POST['new_password'])){
 			if ($_POST['new_password'] !== '') {
-        $newpassword = md5($_POST['new_password']);
+        		$newpassword = md5($_POST['new_password']);
 				$sessionuser = $_SESSION['username'];
 				$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
-        $result->execute();
+        		$result->execute();
 				if($result->rowCount() == 1)
 				{
 					$update = $conn->prepare("UPDATE users SET passwd='$newpassword' WHERE username='$sessionuser' LIMIT 1");   
@@ -41,7 +43,7 @@
 							echo "<b>password changed</b>";
 						}
 				}else{
-					echo "error";
+					echo "error changing password <br/>";
 				}
 				}
     }
@@ -49,6 +51,7 @@
 		die("reset link not clicked");
     }
     if(isset($_POST['new_email'])){
+		if ($_POST['new_email'] !== '') {
         $newemail = $_POST['new_email'];
         $sessionuser = $_SESSION['username'];
 		$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
@@ -61,8 +64,9 @@
 					echo "<b>email changed</b>";
 				}
 		}else{
-			echo "error";
+			echo "error changing email <br/>";
 		}
+	}
     }
     else{
 		die("reset link not clicked");
