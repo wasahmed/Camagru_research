@@ -6,7 +6,7 @@
     photo = document.getElementById('pic');
     if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
     {
-        navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream)
+        navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(function(stream)
         {
             video.srcObject = stream;
             video.play();
@@ -23,9 +23,9 @@
         photo.setAttribute('src', canvas.toDataURL('image/png'));
     });
 
-    document.getElementById('save').addEventListener('click', function()
-    {
-        document.write('hello');
-    });
+    // document.getElementById('save').addEventListener('click', function()
+    // {
+    //     document.write('hello');
+    // });
 })();
 
