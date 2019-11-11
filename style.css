@@ -69,3 +69,14 @@ body {
     text-align: end;
 
 }
+
+.photo{
+    width: 400px;
+    background-color: aquamarine;
+    border: 5px solid;
+    margin: 0 auto;
+}
+
+#canvas{
+    display: none;
+}

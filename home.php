@@ -64,6 +64,7 @@
                         // echo "<script>window.open('products.php','_self')</script>";
                         // }
                         // }
+                        require_once('test.html');
                     }
                     else if ($link == '4')
                     {
