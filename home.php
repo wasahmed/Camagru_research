@@ -1,4 +1,5 @@
 <!DOCTYPE >
+<?php include('config/database.php');?>
 <?php session_start(); ?>
 <html>
     <head>
@@ -32,11 +33,11 @@
                 <?php
                     $link = $_GET['link'];
                     if ($link == '1'){
-                        echo "feed";
+                        require_once("showimages.php");
                     }
                     else if ($link == '2')
                     {
-                        echo "display my posts";
+                        require_once("showmyimages.php");
                     }
                     else if ($link == '3')
                     {
@@ -45,26 +46,22 @@
                         echo "<input type='file' name='image'/>
                         <input type='submit' name='insert_post' value='Post'/>";
                         if(isset($_POST['insert_post']))
-                        { 
-                        $image = $_FILES['image']['name'];
-                        $image_tmp = $_FILES['image']['tmp_name'];
-                        move_uploaded_file($image_tmp, "posts/$image");
-                        echo "<p>posted</p>";
-                        // //query to insert
-                        // $insert_product = "insert into products (product_cat, product_brand, product_title, product_price, product_desc, product_img) values ('$product_cat','$product_brand','$product_title','$product_price','$product_desc','$product_image')";
-                        // $insert_pro = mysqli_query($con, $insert_product);
-                        // if($insert_pro)
-                        // {
-                        // echo "<script>alert('Product inserted')</script>";
-                        // echo "<script>window.open('products.php','_self')</script>";
-                        // }
-                         }
+                        {
+                            $who = $_SESSION['username']; 
+                            $image = $_FILES['image']['name'];
+                            $image_tmp = $_FILES['image']['tmp_name'];
+                            move_uploaded_file($image_tmp, "posts/$image");
+                            $insert = $conn->prepare("insert into images (uploaded_by, image_name) values ('$who', '$image')");
+                            $insert->execute();
+                            if($insert)
+                            {
+                            echo "<script>alert('Image Posted')</script>";
+                            }
+                        }
                         require_once('test.html');
                     }
                     else if ($link == '4')
                     {
-                        // echo "change username, password, email";
-                        
                         echo "
                         <div>
                             <h3>Modify account</h3>
@@ -83,8 +80,6 @@
                                 </form>
                         </div>
             ";
-                        
-                        
                     }
                     else if ($link == '5')
                     {
@@ -112,3 +107,7 @@
 </html>
                 
                     
+                       
+                        
+                        
+                        

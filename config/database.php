@@ -40,11 +40,18 @@ $imgs = "CREATE TABLE IF NOT EXISTS `images` (
     `uploaded_by` varchar(25) NOT NULL,
     `image_name` text NOT NULL
   )";
+
+$likes = "CREATE TABLE IF NOT EXISTS `likes` (
+    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `post_id` int(11) NOT NULL,
+    `user_name` varchar(255) NOT NULL
+  ) ";
           
 
 
 $conn->exec($sql);
 $conn->exec($imgs);
+$conn->exec($likes);
 
 /////////////////////////////////////////////////////////////////////////////
 ?>
