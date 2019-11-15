@@ -35,7 +35,16 @@ $sql = "CREATE TABLE IF NOT EXISTS $db.users (
     `link` VARCHAR(50) NOT NULL , 
     `verified` TINYINT(1) NULL DEFAULT 0)";
 
+$imgs = "CREATE TABLE IF NOT EXISTS `images` (
+    `post_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `uploaded_by` varchar(25) NOT NULL,
+    `image_name` text NOT NULL
+  )";
+          
+
+
 $conn->exec($sql);
+$conn->exec($imgs);
 
 /////////////////////////////////////////////////////////////////////////////
 ?>

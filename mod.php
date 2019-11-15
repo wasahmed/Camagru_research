@@ -54,7 +54,8 @@ if(isset($_POST['new_email'])){
 			$update->execute();
 				if ($update){
 					// $_SESSION['username'] = $sessionuser;
-					echo "<b>username changed</b>";
+					echo "<script>window.alert('Username changed')</script>";
+					header( "refresh:0; url=home.php" );
 				}
 		}else{
 			echo "error changing username <br/>";
