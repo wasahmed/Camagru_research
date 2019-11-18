@@ -43,15 +43,15 @@
                     {
                         echo "post image";
                         echo "<form action='' method='post' enctype='multipart/form-data'>";
-                        echo "<input type='file' name='image'/>
+                        echo "<input type='file' name='image' required/>
                         <input type='submit' name='insert_post' value='Post'/>";
-                        if(isset($_POST['insert_post']) && isset($_POST['image']))
+                        if(isset($_POST['insert_post']))
                         {
                             $who = $_SESSION['username']; 
                             $image = $_FILES['image']['name'];
                             $image_tmp = $_FILES['image']['tmp_name'];
                             move_uploaded_file($image_tmp, "posts/$image");
-                            $insert = $conn->prepare("insert into images (uploaded_by, image_name) values ('$who', '$image')");
+                            $insert = $conn->prepare("insert into images (uploaded_by, image_name) values ('$who', 'posts/$image')");
                             $insert->execute();
                             if($insert)
                             {
@@ -93,6 +93,7 @@
                     }
                     else
                     {  
+                        require_once("showimages.php");
                         //var_dump($_SESSION);
                         //echo"default home";
                     }

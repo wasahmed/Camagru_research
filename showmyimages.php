@@ -20,7 +20,7 @@
                 echo "
                 <div style='border:1px solid black'>
                 <p>User name</p>
-                <img src='posts/$display_img' width='90%' height='auto' alt='sometings wrong' />
+                <img src='$display_img' width='90%' height='auto' alt='sometings wrong' />
                 
                 <p><a href='delete.php?img_id=$img_id'><button>Delete Image</button></a></p>
                 </div>

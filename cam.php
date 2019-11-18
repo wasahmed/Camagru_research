@@ -1,7 +1,6 @@
 <?php
 include_once('config/database.php');
 session_start();
-echo"he";
 $imgfile = file_get_contents("php://input");
 $x = explode(',', $imgfile);
 $photo = base64_decode($x[1]);
