@@ -45,7 +45,7 @@
                         echo "<form action='' method='post' enctype='multipart/form-data'>";
                         echo "<input type='file' name='image'/>
                         <input type='submit' name='insert_post' value='Post'/>";
-                        if(isset($_POST['insert_post']))
+                        if(isset($_POST['insert_post']) && isset($_POST['image']))
                         {
                             $who = $_SESSION['username']; 
                             $image = $_FILES['image']['name'];
@@ -58,6 +58,8 @@
                             echo "<script>alert('Image Posted')</script>";
                             }
                         }
+                        else 
+                         echo "error";
                         require_once('test.html');
                     }
                     else if ($link == '4')
@@ -93,7 +95,6 @@
                     {  
                         //var_dump($_SESSION);
                         //echo"default home";
-                        require_once("showimages.php");
                     }
                 ?>
             </div>
