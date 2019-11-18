@@ -16,16 +16,15 @@
     document.getElementById('capture').addEventListener('click', function()
     {
         context.drawImage(video, 0, 0, 400, 300);
-        //manipulate
-
-
-
         photo.setAttribute('src', canvas.toDataURL('image/png'));
+
     });
 
-    // document.getElementById('save').addEventListener('click', function()
-    // {
-    //     document.write('hello');
-    // });
+    document.getElementById('save').addEventListener('click', function()
+    {
+       pic = canvas.toDataURL('image/png');
+       //console.log(pic);
+       
+    });
 })();
 

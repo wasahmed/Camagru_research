@@ -1,11 +1,14 @@
 <?php include('config/database.php');?>
 <?php session_start(); ?>
 <?php
-        $who = $_SESSION['username'];
+
         $counter = 0;
-        $get_imgs = $conn->prepare("select * from images where uploaded_by='$who'");
+        $get_imgs = $conn->prepare("select * from images order by post_id desc ");
         $get_imgs->execute();
         $rows = $get_imgs->rowCount();
+        $qcount = $conn->prepare("SELECT * FROM likes");
+        $qcount->execute();
+        $likes = $qcount->rowCount();
         if ($rows)
         {
             while($row = $get_imgs->fetch(PDO::FETCH_BOTH)){
@@ -17,12 +20,13 @@
                 // $row = $get_imgs->fetchAll();
                 $display_img = $row['image_name'];
                 $img_id = $row['post_id'];
+                $poster = $row['uploaded_by'];
                 echo "
                 <div style='border:1px solid black'>
-                <p>User name</p>
+                <p>$poster</p>
                 <img src='posts/$display_img' width='90%' height='auto' alt='sometings wrong' />
+
                 
-                <p><a href='delete.php?img_id=$img_id'><button>Delete Image</button></a></p>
                 </div>
                 ";
             }

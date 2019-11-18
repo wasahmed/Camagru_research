@@ -47,8 +47,9 @@ if(isset($_POST['register'])){
             $headers .= 'From: <bikad58028@mailnet.top>' . "\r\n";
             if(mail($to, $subject, $message, $headers))
             
-            echo "testmail";
-            echo "A verification email has been sent to $email";
+            
+            echo "<script>window.alert('Registered successfuly, please verify account from email')</script>";
+            header("refresh:0; url=index.php" );
         }
         
         //$_SESSION['username'] = $username;

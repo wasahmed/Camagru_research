@@ -9,7 +9,8 @@
 			$update = $conn->prepare("UPDATE users SET verified=1 WHERE link='$link' LIMIT 1");   
 			$update->execute();
 				if ($update){
-					echo "<b>verified account</b>";
+					echo "<script>window.alert('Account verified')</script>";
+            		header("refresh:0; url=index.php" );
 				}
 		}else{
 			echo "damn";

@@ -44,7 +44,14 @@ $imgs = "CREATE TABLE IF NOT EXISTS `images` (
 $likes = "CREATE TABLE IF NOT EXISTS `likes` (
     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `post_id` int(11) NOT NULL,
-    `user_name` varchar(255) NOT NULL
+    `username` varchar(255) NOT NULL
+  ) ";
+
+$comments = "CREATE TABLE IF NOT EXISTS `comments` (
+    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `post_id` int(11) NOT NULL,
+    `comment` varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL
   ) ";
           
 
@@ -52,6 +59,7 @@ $likes = "CREATE TABLE IF NOT EXISTS `likes` (
 $conn->exec($sql);
 $conn->exec($imgs);
 $conn->exec($likes);
+$conn->exec($comments);
 
 /////////////////////////////////////////////////////////////////////////////
 ?>

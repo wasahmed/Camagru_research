@@ -6,6 +6,9 @@
         $get_imgs = $conn->prepare("select * from images order by post_id desc ");
         $get_imgs->execute();
         $rows = $get_imgs->rowCount();
+        $qcount = $conn->prepare("SELECT * FROM likes");
+        $qcount->execute();
+        $likes = $qcount->rowCount();
         if ($rows)
         {
             while($row = $get_imgs->fetch(PDO::FETCH_BOTH)){
@@ -17,12 +20,18 @@
                 // $row = $get_imgs->fetchAll();
                 $display_img = $row['image_name'];
                 $img_id = $row['post_id'];
+                $poster = $row['uploaded_by'];
                 echo "
                 <div style='border:1px solid black'>
-                <p>User name</p>
+                <p>$poster</p>
                 <img src='posts/$display_img' width='90%' height='auto' alt='sometings wrong' />
-                
-                <p><a href='likes.php?img_id=$img_id'><button>like</button></a></p>
+
+                <form action='comments.php?img_id=$img_id' method='post'>
+                    <textarea id='view' name='comments' placeholder='Comment here'></textarea>
+                    <p><input type='submit' name='submitcomm' value='Insert comment'/></p>
+                </form>
+                <p><a href='viewcomments.php?img_id=$img_id'><button>View comments</button></a></p>
+                <p><a href='likes.php?img_id=$img_id'><button id='total'>$likes likes</button></a></p>
                 </div>
                 ";
             }

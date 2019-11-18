@@ -92,7 +92,8 @@
                     else
                     {  
                         //var_dump($_SESSION);
-                        echo"default home";
+                        //echo"default home";
+                        require_once("showimages.php");
                     }
                 ?>
             </div>
