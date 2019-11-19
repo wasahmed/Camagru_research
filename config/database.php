@@ -33,7 +33,9 @@ $sql = "CREATE TABLE IF NOT EXISTS $db.users (
     email VARCHAR(30),
     passwd VARCHAR(100) NOT NULL, 
     `link` VARCHAR(50) NOT NULL , 
-    `verified` TINYINT(1) NULL DEFAULT 0)";
+    `verified` TINYINT(1) NULL DEFAULT 0,
+    `notify` TINYINT(1) NULL DEFAULT 0)";
+    
 
 $imgs = "CREATE TABLE IF NOT EXISTS `images` (
     `post_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,

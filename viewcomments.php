@@ -1,5 +1,4 @@
 <?php include('config/database.php');?>
-<?php include('showimages.php');?>
 <?php session_start(); ?>
 <?php
     $counter = 0;

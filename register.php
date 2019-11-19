@@ -59,6 +59,9 @@
                     <div class="textbox">
                         <input type="password" placeholder="Confirm Password" name="password_2" value="" required/>
                     </div>
+                    <div class="textbox">
+                        <h6>Recieve notifications?<input type="checkbox" name="check" /></h6>
+                    </div>
                     <button type="submit" name="register" class="btn"> Sign Up </button>
                 <p>Already have an account?  <a href="index.php">Sign In</a></p>
                 </form>

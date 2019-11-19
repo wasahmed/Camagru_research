@@ -22,8 +22,6 @@
 
     document.getElementById('save').addEventListener('click', function(e)
     {
-       //pic = canvas.toDataURL('image/png');
-       //console.log(pic);
        var image = canvas.toDataURL('image/png');
        var xhttp = new XMLHttpRequest();
        xhttp.onreadystatechange = function(){
@@ -34,5 +32,25 @@
        xhttp.open("post", "cam.php",false);
        xhttp.send(image);
     });
+    // function setPicture(select){
+    //     var DD = document.getElementById('dropdown');
+    //     var value = DD.options[DD.selectedIndex].value;
+    //     img1.src = value;
+    //   }
+    function stickers(path) {
+        var sticker = new Image();
+        var width = video.offsetWidth, height = video.offsetHeight;
+        sticker.src = path;
+        if (canvas) {
+            contxt = canvas.getContext('2d');
+            contxt.drawImage(sticker, 0, 0, 200, 300);
+            pic.value = canvas.toDataURL('image/png');
+            if (!(document.getElementById("img"))) {
+                var elem = document.createElement("img");
+                elem.setAttribute("src", sticker.src);
+                document.getElementById("stickers").appendChild(elem);
+            }
+        }
+    };
 })();
 

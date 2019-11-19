@@ -43,7 +43,7 @@
                     {
                         echo "post image";
                         echo "<form action='' method='post' enctype='multipart/form-data'>";
-                        echo "<input type='file' name='image' required/>
+                        echo "<input type='file' name='image' />
                         <input type='submit' name='insert_post' value='Post'/>";
                         if(isset($_POST['insert_post']))
                         {
@@ -77,6 +77,12 @@
                                 </div>
                                 <div>
                                 <input type='email' placeholder='New Email' name='new_email' value='' />
+                                </div>
+                                <div>
+                                <h6>Recieve notifications?<input type='checkbox' name='check1' /></h6>
+                                </div>
+                                <div>
+                                <h6>Do not notifications?<input type='checkbox' name='check2' /></h6>
                                 </div>
                                 <button type='submit' name='modify account'> Update </button>
                                 </form>
