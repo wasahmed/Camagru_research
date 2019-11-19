@@ -32,7 +32,7 @@
     $emailaddress = $email->fetch();
     $sendemailto = $emailaddress['email'];
 
-    
+
     $preference = $conn->prepare("SELECT notify from users where username='$user'");
     $preference->execute();
     $notification_setting = $preference->fetch();
@@ -40,9 +40,9 @@
 
     if ($notify == 1)
     {
-        $to      = 'tofemeg447@4xmail.net';
+        $to      = $sendemailto;
             $subject = 'comments';
-            $message = "fsadz`x";
+            $message = "some has commented on your post";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             $headers .= 'From: <camagru>' . "\r\n";

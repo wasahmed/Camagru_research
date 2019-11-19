@@ -14,7 +14,7 @@ if(isset($_POST['register'])){
     $email = $_POST['email'];
     $password_1 = $_POST['password_1']; 
     $password_2 = $_POST['password_2'];
-    $notify = $_POST['check'];
+    $notify1 = $_POST['check'];
 /////////////////////////////////////////////////////////////////////////////////////
 ///////form validation////////////////////////////////////////////////////////////////
     if(empty($username)) {array_push($errors, "Username is required");}
@@ -39,7 +39,7 @@ if(isset($_POST['register'])){
         //$password = md5($password_1);
         $sql = $conn->prepare("INSERT INTO users (username, email, passwd, link) VALUES ('$username', '$email', '$password', '$link')");
         $sql->execute();
-        if (isset($notify))
+        if (isset($notify1))
         {
             $notify = $conn->prepare("UPDATE users SET notify=1");   
 			$notify->execute();

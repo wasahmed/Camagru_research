@@ -5,7 +5,6 @@
 	if(isset($_POST['new_password'])){
 		if ($_POST['new_password'] !== '') {
 			$newpassword = md5($_POST['new_password']);
-			// $sessionuser = $_SESSION['username'];
 			$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
 			$result->execute();
 			if($result->rowCount() == 1)
@@ -27,7 +26,6 @@ else{
 if(isset($_POST['new_email'])){
 	if ($_POST['new_email'] !== '') {
 	$newemail = $_POST['new_email'];
-	// $sessionuser = $_SESSION['username'];
 	$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
 	$result->execute();
 	if($result->rowCount() == 1)
@@ -45,7 +43,6 @@ if(isset($_POST['new_email'])){
 	if(isset($_POST['new_username'])){
 		if ($_POST['new_username'] !== '') {
         $newusername = $_POST['new_username'];
-        // $sessionuser = $_SESSION['username'];
 		$result = $conn->prepare("SELECT * from users WHERE username='$sessionuser' LIMIT 1");
         $result->execute();
 		if($result->rowCount() == 1)
