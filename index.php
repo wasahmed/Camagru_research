@@ -26,6 +26,7 @@
                     <button type="submit" name="login" class="btn"> Sign In </button>
                 <p>Not registered?  <a href="register.php">Sign Up</a></p>
                 <p><a href="forgot_password.php">Forgot password?</a></p>
+                <p><a href="pg.php">View public gallery</a></p>
                 </form>
             </div>
         

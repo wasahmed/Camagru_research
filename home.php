@@ -22,8 +22,9 @@
                 <ul id="menu">
                     <li><a href="?link=1" name="link1">Home</a></li>
                     <li><a href="?link=2" name="link2">Gallery</a></li>
-                    <li><a href="?link=3" name="link3">Upload</a></li>
+                    <li><a href="?link=3" name="link3">Snap</a></li>
                     <li><a href="?link=4" name="link4">Account settings</a></li>
+                    <li><a href="?link=6" name="link6">Upload</a></li>
                     <li><a href="?link=5" name="link5">Logout</a></li>
                 </ul>
             </div>
@@ -41,26 +42,7 @@
                     }
                     else if ($link == '3')
                     {
-                        echo "post image";
-                        echo "<form action='' method='post' enctype='multipart/form-data'>";
-                        echo "<input type='file' name='image' />
-                        <input type='submit' name='insert_post' value='Post'/>";
-                        if(isset($_POST['insert_post']))
-                        {
-                            $who = $_SESSION['username']; 
-                            $image = $_FILES['image']['name'];
-                            $image_tmp = $_FILES['image']['tmp_name'];
-                            move_uploaded_file($image_tmp, "posts/$image");
-                            $insert = $conn->prepare("insert into images (uploaded_by, image_name) values ('$who', 'posts/$image')");
-                            $insert->execute();
-                            if($insert)
-                            {
-                            echo "<script>alert('Image Posted')</script>";
-                            }
-                        }
-                        else 
-                         echo "error";
-                        require_once('test.html');
+                        require_once('test.php');
                     }
                     else if ($link == '4')
                     {
@@ -96,6 +78,26 @@
                         unset($_SESSION['success']);
                         header('location: index.php');
                         //var_dump($_SESSION);
+                    }
+                    else if ($link == '6')
+                    {
+                        echo "post image";
+                        echo "<form action='' method='post' enctype='multipart/form-data'>";
+                        echo "<input type='file' name='image' />
+                        <input type='submit' name='insert_post' value='Post'/>";
+                        if(isset($_POST['insert_post']))
+                        {
+                            $who = $_SESSION['username']; 
+                            $image = $_FILES['image']['name'];
+                            $image_tmp = $_FILES['image']['tmp_name'];
+                            move_uploaded_file($image_tmp, "posts/$image");
+                            $insert = $conn->prepare("insert into images (uploaded_by, image_name) values ('$who', 'posts/$image')");
+                            $insert->execute();
+                            if($insert)
+                            {
+                            echo "<script>alert('Image Posted')</script>";
+                            }
+                        }
                     }
                     else
                     {  
