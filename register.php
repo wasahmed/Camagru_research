@@ -38,7 +38,6 @@
             <h2>Register</h2>
 
             <div>
-            <!-- need processing to happen only if password is correct -->
                 <form action="serverside.php" method="post" onsubmit="return chkpwd()">
 
                     <?php include('errors.php') ?>

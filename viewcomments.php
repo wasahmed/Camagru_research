@@ -16,8 +16,6 @@
                 $display_comment = $row['comment'];
                 $commenter = $row['username'];
                 echo "Comment by $commenter : $display_comment<br>";
-                //header("refresh:0; url=home.php?link=1" );
-                //echo "$display_comment";
  
             }     
         }else{

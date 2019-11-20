@@ -15,7 +15,6 @@
             if ($update)
             {
                 echo "<script>window.alert('comment inserted')</script>";
-                //header("refresh:0; url=home.php?link=1" );
             }      
         }else{
             die("somethings wrong");

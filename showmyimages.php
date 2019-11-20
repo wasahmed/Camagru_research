@@ -10,11 +10,6 @@
         {
             while($row = $get_imgs->fetch(PDO::FETCH_BOTH)){
                 $counter++;
-                //echo $counter;
-                //echo $row['Name'];
-                
-                // echo "there is something to display";
-                // $row = $get_imgs->fetchAll();
                 $display_img = $row['image_name'];
                 $img_id = $row['post_id'];
                 echo "

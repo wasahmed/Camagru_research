@@ -11,13 +11,6 @@
     <?php
             if (!isset($_SESSION['success'])) header('location: index.php');
     ?>
-        <!--<div class="photo">
-            <video id="vid" width="400" height="290"></video>
-            <a href="#" id="capture" class="capturebtn">capture</a>
-            <canvas id="canvas" width="400" height="300"></canvas>
-            <img id="pic" src="http://placekitten.com/g/400/300">
-            <a href="#" id="save" class="capturebtn">Save</a>
-        </div>-->
         <div style="margin-bottom: 15px">
             <video id="video" autoplay></video>
         </div>
@@ -40,9 +33,6 @@
             <img id="s2" src="stickers/s2.png" alt="light" width=100 height=100>
             <img id="s3" src="stickers/s3.png" alt="nerd" width=100 height=100>
                            
-            <!--<button onclick="stickers('stickers/s1.png')">sticker1</button>
-            <button onclick="stickers('stickers/s2.png')">sticker2</button>
-            <button onclick="stickers('stickers/s3.png')">sticker3</button>-->
         </div>
         <script src="photo.js"></script>
         <?php 
