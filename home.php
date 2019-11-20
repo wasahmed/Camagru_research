@@ -1,5 +1,5 @@
 <!DOCTYPE >
-<?php include('config/database.php');?>
+<?php include('config/setup.php');?>
 <?php session_start(); ?>
 <html>
     <head>

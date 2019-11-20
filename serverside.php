@@ -1,4 +1,4 @@
-<?php include('config/database.php');?>
+<?php include('config/setup.php');?>
 <?php
 session_start();
 if(isset($_POST['register'])){
@@ -50,7 +50,7 @@ if(isset($_POST['register'])){
             $message = "<a href='http://localhost:8080/camagru_research/verify.php?link=$link'>Confirm Account</a>";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-            $headers .= 'From: <bikad58028@mailnet.top>' . "\r\n";
+            $headers .= 'From: <camagru>' . "\r\n";
             if(mail($to, $subject, $message, $headers))
             
             

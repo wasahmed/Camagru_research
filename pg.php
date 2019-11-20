@@ -1,5 +1,5 @@
 <!DOCTYPE >
-<?php include('config/database.php');?>
+<?php include('config/setup.php');?>
 <html>
     <head>
         <link rel="stylesheet" href="style2.css"/>

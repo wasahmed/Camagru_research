@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
 
     <head>
@@ -7,6 +8,9 @@
     </head>
     
     <body>
+    <?php
+            if (!isset($_SESSION['success'])) header('location: index.php');
+    ?>
         <!--<div class="photo">
             <video id="vid" width="400" height="290"></video>
             <a href="#" id="capture" class="capturebtn">capture</a>

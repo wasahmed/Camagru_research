@@ -1,4 +1,4 @@
-<?php include('/config/database.php');?>
+<?php include('config/setup.php');?>
 <html>
 <head>
     <title>Camagru: Forgot Password</title>

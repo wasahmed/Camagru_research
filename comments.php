@@ -1,4 +1,4 @@
-<?php include('config/database.php');?>
+<?php include('config/setup.php');?>
 
 <?php session_start(); ?>
 <?php
@@ -42,7 +42,7 @@
     {
         $to      = $sendemailto;
             $subject = 'comments';
-            $message = "some has commented on your post";
+            $message = "someone has commented on your post";
             $headers = "MIME-Version: 1.0" . "\r\n";
             $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             $headers .= 'From: <camagru>' . "\r\n";

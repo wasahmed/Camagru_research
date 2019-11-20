@@ -1,5 +1,5 @@
 <?php
-include_once('config/database.php');
+include_once('config/setup.php');
 session_start();
 $imgfile = file_get_contents("php://input");
 $x = explode(',', $imgfile);
